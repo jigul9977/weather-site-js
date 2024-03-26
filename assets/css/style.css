@@ -1,1 +1,42 @@
 @import "_reset.css";
+
+#search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 32px 32px;
+  padding: 100px 0 200px;
+  background: linear-gradient(13deg, var(--color-blue) 47%, var(--color-light) 100%);
+  box-shadow: #2a749981 0px 13px 27px -5px, #2a749948 0px 8px 16px -8px;
+}
+#search > i {
+  font-size: 2.5rem;
+  margin-right: 16px;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+}
+#search > i:hover {
+  transform: scale(1.3);
+}
+#search .search-box {
+  color: var(--color-blue);
+  width: 370px;
+  height: 45px;
+  border-radius: 8px 0 0 8px;
+  border: none;
+  outline: none;
+  padding: 0 12px;
+}
+#search .search-btn {
+  background-color: var(--color-orange);
+  color: #ededed;
+  border: none;
+  height: 45px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 0 8px 8px 0;
+  transition: all 0.1s ease-in;
+}
+#search .search-btn:hover {
+  background-color: var(--color-blue);
+}
