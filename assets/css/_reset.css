@@ -1,7 +1,7 @@
 :root {
   --color-blue: #2a7499;
   --color-orange: #f05514;
-  --color-light: #c3c8cf;
+  --color-light: #e6e9ec;
   --color-yellow: #ffec53;
   /* --color-error: #e63946; */
 }
@@ -16,7 +16,7 @@ p {
 body {
   max-width: 1400px;
   margin: auto;
-  background-color: var(--color-secondary);
+  background-color: #eeeaea;
   color: #07090e;
 }
 a {

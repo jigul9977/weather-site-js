@@ -10,6 +10,7 @@
   box-shadow: #2a749981 0px 13px 27px -5px, #2a749948 0px 8px 16px -8px;
 }
 #search > i {
+  color: var(--color-light);
   font-size: 2.5rem;
   margin-right: 16px;
   cursor: pointer;
@@ -18,7 +19,7 @@
 #search > i:hover {
   transform: scale(1.3);
 }
-#search .search-box {
+#search #search-box {
   color: var(--color-blue);
   width: 370px;
   height: 45px;
@@ -27,7 +28,7 @@
   outline: none;
   padding: 0 12px;
 }
-#search .search-btn {
+#search #search-btn {
   background-color: var(--color-orange);
   color: #ededed;
   border: none;
@@ -37,6 +38,50 @@
   border-radius: 0 8px 8px 0;
   transition: all 0.1s ease-in;
 }
-#search .search-btn:hover {
+#search #search-btn:hover {
   background-color: var(--color-blue);
+}
+
+#today-weather-sec {
+  width: 500px;
+  min-height: 200px;
+  position: relative;
+  top: -80px;
+  background-color: #fafafa;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 32px;
+  border-radius: 32px;
+  box-shadow: var(--color-light) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+#today-weather-sec h1 {
+  color: var(--color-blue);
+  font-size: 32px;
+  font-weight: bolder;
+  margin-bottom: 24px;
+}
+#today-weather-sec .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+}
+#today-weather-sec .main p {
+  color: #716b6b;
+
+  margin: 0 40px 0 12px;
+}
+#today-weather-sec .info {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+#today-weather-sec .info span {
+  color: #35a4db;
+  margin-left: 4px;
 }
