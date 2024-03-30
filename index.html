@@ -10,6 +10,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Arash tavana | Weather Site</title>
   </head>
@@ -21,9 +27,31 @@
         <button id="search-btn">Search</button>
       </div>
     </header>
-    <section id="today-weather-sec"></section>
+    <section id="today-weather-sec">
+      <div id="document-loader" class="d-flex justify-content-center">
+        <div class="spinner-border custom-spinner-border" role="status"></div>
+      </div>
+    </section>
     <section id="forecast-weather-sec"></section>
+    <!-- Modal -->
+    <div class="modal fade" id="custom-modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body fw-bold text-center">...</div>
+          <div class="modal-footer">
+            <button id="close-modal" type="button" class="btn btn-danger" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="./assets/js/app.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

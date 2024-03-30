@@ -1,4 +1,5 @@
 import { getWeatherData } from "../../utils/httpreq.js";
+import { removeModal, showModal } from "../../utils/modal.js";
 
 const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const searchBox = document.getElementById("search-box");
@@ -6,8 +7,11 @@ const searchButton = document.getElementById("search-btn");
 const todayWeatherSection = document.getElementById("today-weather-sec");
 const forecastWeatherSection = document.getElementById("forecast-weather-sec");
 const locationIcon = document.getElementById("location-icon");
+const closeModalButton = document.getElementById("close-modal");
+const documentLoader = document.getElementById("document-loader");
 
 const showCurrentWeather = (data) => {
+  if (!data) return;
   const curentWeatherJSX = `
   <h1>${data.name}, ${data.sys.country} </h1>
   <div class="main">
@@ -25,6 +29,7 @@ const getDayOfWeek = (data) => {
   return DAYS[new Date(data * 1000).getDay()];
 };
 const showForecastWeather = (data) => {
+  if (!data) return;
   forecastWeatherSection.innerHTML = "";
   data = data.list.filter((obj) => obj.dt_txt.endsWith("12:00:00"));
   data.forEach((item) => {
@@ -46,13 +51,13 @@ const PositionCallback = async (position) => {
   showForecastWeather(forecastWeather);
 };
 const PositionErrorCallback = (error) => {
-  console.log(error);
+  showModal(error.message);
 };
 const locationHandler = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(PositionCallback, PositionErrorCallback);
   } else {
-    alert("navigator.geolocation is not available");
+    showModal("navigator.geolocation is not available!");
   }
 };
 
@@ -60,7 +65,8 @@ const searchHandler = async () => {
   const cityName = searchBox.value;
   searchBox.value = "";
   if (!cityName) {
-    alert("Please enter a city name!");
+    showModal("Please enter a city name!");
+    return;
   }
   const currentWeather = await getWeatherData("current", cityName); // This function takes time to be done, so it is better to write it as async
   showCurrentWeather(currentWeather);
@@ -68,5 +74,15 @@ const searchHandler = async () => {
   showForecastWeather(forecastWeather);
 };
 
+const initHandler = async () => {
+  const currentWeather = await getWeatherData("current", "tehran"); // This function takes time to be done, so it is better to write it as async
+  showCurrentWeather(currentWeather);
+  const forecastWeather = await getWeatherData("forecast", "tehran");
+  showForecastWeather(forecastWeather);
+  documentLoader.style.display = "none";
+};
+
 searchButton.addEventListener("click", searchHandler);
 locationIcon.addEventListener("click", locationHandler);
+closeModalButton.addEventListener("click", removeModal);
+document.addEventListener("DOMContentLoaded", initHandler);
