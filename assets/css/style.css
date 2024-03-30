@@ -55,8 +55,7 @@
   flex-direction: column;
   padding: 32px;
   border-radius: 32px;
-  box-shadow: var(--color-light) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
-    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  box-shadow: #c9cccf96 0px 12px 28px 0px, #c9cccf36 0px 2px 4px 0px, #c9cccf1d 0px 0px 0px 1px inset;
 }
 #today-weather-sec h1 {
   color: var(--color-blue);
@@ -84,4 +83,32 @@
 #today-weather-sec .info span {
   color: #35a4db;
   margin-left: 4px;
+}
+#forecast-weather-sec {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#forecast-weather-sec .forecast-card {
+  width: 15%;
+  background-color: #fafafa;
+  padding: 24px 12px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  box-shadow: #c9cccf44 0px 4px 16px, #c9cccf44 0px 8px 24px, #c9cccf44 0px 16px 56px;
+}
+
+#forecast-weather-sec .forecast-card h3 {
+  color: var(--color-blue);
+  margin-bottom: 32px;
+}
+#forecast-weather-sec .forecast-card span {
+  margin-bottom: 12px;
+}
+#forecast-weather-sec .forecast-card p {
+  color: #716b6b;
+  margin-bottom: 12px;
 }
